@@ -4,7 +4,8 @@
   "info": {
     "singularName": "content",
     "pluralName": "contents",
-    "displayName": "content"
+    "displayName": "content",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,14 +20,15 @@
       "type": "string"
     },
     "file": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "url": {
       "type": "string"
@@ -47,6 +49,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::subcategory.subcategory",
+      "inversedBy": "contents"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
       "inversedBy": "contents"
     }
   }
